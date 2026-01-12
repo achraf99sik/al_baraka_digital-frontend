@@ -1,0 +1,47 @@
+body {
+    background-color: #0f172a;
+    overflow-x: hidden;
+}
+
+/* Animated Background Mesh */
+.mesh-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background:
+        radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.4), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(37, 99, 235, 0.4), transparent 25%);
+    z-index: -1;
+}
+
+/* Custom Input Styling */
+.input-group {
+    position: relative;
+}
+.input-field {
+    background: rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.input-field:focus {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: #00f2ff;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+}
+.input-field:placeholder-shown + .input-label {
+    opacity: 0;
+    transform: translateY(10px);
+}
+.input-label {
+    transition: all 0.3s ease;
+}
+
+/* Glass Card */
+.glass-card {
+    background: rgba(17, 25, 40, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
