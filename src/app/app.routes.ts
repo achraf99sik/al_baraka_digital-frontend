@@ -6,17 +6,17 @@ import { Login } from './module/login/login';
 export const routes: Routes = [
   {
     path: '',
-    title: 'Home',
-    component: Home
+    title: 'Al Baraka Digital | The Future of Banking',
+    component: Home,
   },
   {
     path: 'register',
-    title: 'Register',
-    component: Register
+    title: 'Join Al Baraka Digital',
+    component: Register,
   },
   {
     path: 'login',
-    title: 'Login',
-    component: Login
-  }
+    title: 'Login | Al Baraka Digital',
+    component: Login,
+  },
 ];
