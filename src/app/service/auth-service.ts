@@ -4,7 +4,7 @@ import { ApiHelper } from '../helper/api-helper';
 import { HttpClient } from '@angular/common/http';
 import { LoginRequest } from '../dto/request/login-request';
 import { AuthResponse } from '../dto/responce/auth-response';
-import { BehaviorSubject } from 'rxjs';
+import { RegisterRequest } from '../dto/request/register-request';
 
 @Injectable({
   providedIn: 'root',
@@ -21,8 +21,26 @@ export class AuthService extends ApiHelper {
     return token !== null && token !== '';
   }
   login(payload: LoginRequest) {
-    return this.handleRequest(
+    this.handleRequest(
       this.http.post<AuthResponse>(`${this.api}/v1/auth/authenticate`, payload),
+      (res) => {
+        this.cookieHelper.set('access_token', res.access_token, 1);
+        this.cookieHelper.set('refresh_token', res.refresh_token, 7);
+      }
+    );
+  }
+  register(payload: RegisterRequest) {
+    this.handleRequest(
+      this.http.post<AuthResponse>(`${this.api}/v1/auth/register`, payload),
+      (res) => {
+        this.cookieHelper.set('access_token', res.access_token, 1);
+        this.cookieHelper.set('refresh_token', res.refresh_token, 7);
+      }
+    );
+  }
+  refreshToken() {
+    this.handleRequest(
+      this.http.post<AuthResponse>(`${this.api}/v1/auth/refresh-token`, null),
       (res) => {
         this.cookieHelper.set('access_token', res.access_token, 1);
         this.cookieHelper.set('refresh_token', res.refresh_token, 7);
