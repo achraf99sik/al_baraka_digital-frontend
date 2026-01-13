@@ -2,6 +2,8 @@ import { FormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RegisterRequest } from '../../dto/request/register-request';
+import { AuthService } from '../../service/auth-service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -121,6 +123,7 @@ import { RegisterRequest } from '../../dto/request/register-request';
 })
 export class Register {
   showPassword: boolean = false;
+  isLoading: Observable<boolean>;
   payload: RegisterRequest = {
     firstname: '',
     lastname: '',
@@ -128,4 +131,10 @@ export class Register {
     password: '',
     role: 'CLIENT'
   };
+  constructor(private authService: AuthService) {
+    this.isLoading = this.authService.isLoading$;
+  }
+  submit() {
+    this.authService.register(this.payload);
+  }
 }
