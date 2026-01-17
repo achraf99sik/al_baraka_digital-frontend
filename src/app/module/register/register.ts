@@ -55,12 +55,12 @@ import { Observable } from 'rxjs';
                 <div class="grid grid-cols-2 gap-4">
                     <div class="space-y-2">
                         <label class="text-xs font-semibold text-cyan-400 uppercase tracking-wider ml-1">First Name</label>
-                        <input type="text" name="firstname"
+                        <input [(ngModel)]="payload.firstname" type="text" name="firstname"
                             class="input-field w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-0 placeholder-slate-600 text-sm" placeholder="First Name">
                     </div>
                     <div class="space-y-2">
                         <label class="text-xs font-semibold text-cyan-400 uppercase tracking-wider ml-1">Last Name</label>
-                        <input type="text" name="lastname"
+                        <input [(ngModel)]="payload.lastname" type="text" name="lastname"
                             class="input-field w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-0 placeholder-slate-600 text-sm" placeholder="Last Name">
                     </div>
                 </div>
@@ -68,7 +68,7 @@ import { Observable } from 'rxjs';
                 <div class="space-y-2">
                     <label class="text-xs font-semibold text-cyan-400 uppercase tracking-wider ml-1">Email</label>
                     <div class="relative">
-                        <input type="email" name="email"
+                        <input [(ngModel)]="payload.email" type="email" name="email"
                             class="input-field w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-0 placeholder-slate-600 text-sm pl-11" placeholder="name@company.com">
                         <i class="fa-regular fa-envelope absolute left-4 top-3.5 text-slate-500"></i>
                     </div>
@@ -77,7 +77,7 @@ import { Observable } from 'rxjs';
                 <div class="space-y-2">
                     <label class="text-xs font-semibold text-cyan-400 uppercase tracking-wider ml-1">Password</label>
                     <div class="relative">
-                        <input [type]="showPassword?'text':'password'" name="password"
+                        <input [(ngModel)]="payload.password" [type]="showPassword?'text':'password'" name="password"
                             class="input-field w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white focus:outline-none focus:ring-0 placeholder-slate-600 text-sm pl-11" placeholder="••••••••">
                         <i class="fa-solid fa-lock absolute left-4 top-3.5 text-slate-500"></i>
                         <button (click)="showPassword = !showPassword" class="absolute h-full right-4 text-cyan-400 hover:text-cyan-300 cursor-pointer">
@@ -102,7 +102,7 @@ import { Observable } from 'rxjs';
                 </div>
 
                 <div class="pt-4">
-                    <button
+                    <button (click)="submit()"
                         class="group cursor-pointer relative w-full flex justify-center py-3.5 px-4 border border-transparent text-sm font-medium rounded-xl text-white bg-linear-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 shadow-[0_0_20px_rgba(6,182,212,0.5)] hover:shadow-[0_0_30px_rgba(6,182,212,0.7)]">
                         <span class="absolute left-0 inset-y-0 flex items-center pl-3">
                             <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>

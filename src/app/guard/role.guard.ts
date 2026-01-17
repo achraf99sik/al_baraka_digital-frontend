@@ -13,8 +13,6 @@ export const roleGuard: CanActivateFn = (route, state) => {
     return true;
   }
   
-  // If authenticated but wrong role, maybe redirect to home or login
-  // For now, redirect to login
   router.navigate(['/login']);
   return false;
 };
