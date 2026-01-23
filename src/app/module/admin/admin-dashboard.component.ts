@@ -63,9 +63,9 @@ import { Router, RouterLink } from '@angular/router';
                                 <td class="px-6 py-4">
                                     <div class="flex items-center gap-3">
                                         <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-xs font-bold text-slate-400">
-                                            {{ user.firstname.charAt(0) }}{{ user.lastname.charAt(0) }}
+                                            {{ user.fullName.charAt(0) }}
                                         </div>
-                                        <div class="font-medium text-white">{{ user.firstname }} {{ user.lastname }}</div>
+                                        <div class="font-medium text-white">{{ user.fullName }}</div>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4">

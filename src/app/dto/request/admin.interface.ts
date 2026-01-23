@@ -8,10 +8,10 @@ export interface CreateUserRequest {
 
 export interface UserResponse {
   id: string;
-  firstname: string;
-  lastname: string;
+  fullName: string;
   email: string;
   role: string;
-  createdAt?: string; // Assuming these might exist
+  active: boolean;
+  createdAt?: string;
   updatedAt?: string;
 }
